@@ -4,7 +4,7 @@ import neko.anc.contracts.abstracts.GamemodeHandler;
 
 public class NekoGamemode extends GamemodeHandler {
 
-    public NekoPlugin() {
+    public NekoGamemode() {
         super("sandbox");
     }
 
