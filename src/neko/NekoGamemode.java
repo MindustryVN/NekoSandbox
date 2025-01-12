@@ -2,7 +2,7 @@ package neko;
 
 import neko.anc.contracts.abstracts.GamemodeHandler;
 
-public class NekoPlugin extends GamemodeHandler {
+public class NekoGamemode extends GamemodeHandler {
 
     public NekoPlugin() {
         super("sandbox");
