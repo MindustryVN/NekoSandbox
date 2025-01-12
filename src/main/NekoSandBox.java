@@ -1,10 +1,10 @@
-package neko;
+package main;
 
 import neko.anc.contracts.abstracts.GamemodeHandler;
 
-public class NekoGamemode extends GamemodeHandler {
+public class NekoSandBox extends GamemodeHandler {
 
-    public NekoGamemode() {
+    public NekoSandBox() {
         super("sandbox");
     }
 
