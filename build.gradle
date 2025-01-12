@@ -1,0 +1,42 @@
+apply plugin: "java"
+
+version '1.0'
+sourceCompatibility = JavaVersion.VERSION_17
+sourceSets.main.java.srcDirs = ["src"]
+sourceSets.main.resources.srcDirs = ["res"] 
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories{
+    mavenCentral()
+
+    maven{ url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+    maven{ url 'https://www.jitpack.io' }
+
+    flatDir { dirs 'libs' }
+}
+
+ext{
+    mindustryVersion = 'v146'
+    jabelVersion = "93fde537c7"
+}
+
+dependencies{
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+
+    compileOnly 'org.mongodb:mongodb-driver-sync:5.2.1'
+    compileOnly 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    compileOnly files('libs/master/server-controller.jar')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+jar{
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    archiveFileName = "${project.archivesBaseName}.jar"
+
+    from { configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)} }
+    from (rootDir) { include "plugin.json" }
+}
