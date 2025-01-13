@@ -1,5 +1,6 @@
 package main;
 
+import mindustry.game.Gamemode;
 import neko.anc.contracts.abstracts.GamemodeHandler;
 
 public class NekoSandbox extends GamemodeHandler {
@@ -16,5 +17,10 @@ public class NekoSandbox extends GamemodeHandler {
     @Override
     public String getCommandKeyword() {
         return "sandbox, sbx";
+    }
+
+    @Override
+    public Gamemode getDefaultGamemode() {
+        return Gamemode.sandbox;
     }
 }
