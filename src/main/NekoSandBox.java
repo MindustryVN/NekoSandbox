@@ -1,7 +1,7 @@
 package main;
 
 import mindustry.game.Gamemode;
-import neko.anc.contracts.abstracts.GamemodeHandler;
+import neko.anc.abstracts.GamemodeHandler;
 
 public class NekoSandbox extends GamemodeHandler {
 
